@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="queryTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="queryTableResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ambulance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fire" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="police" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertTableResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteTableResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="queryTableSoapIn">
+    <wsdl:part name="parameters" element="tns:queryTable" />
+  </wsdl:message>
+  <wsdl:message name="queryTableSoapOut">
+    <wsdl:part name="parameters" element="tns:queryTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertTableSoapIn">
+    <wsdl:part name="parameters" element="tns:insertTable" />
+  </wsdl:message>
+  <wsdl:message name="insertTableSoapOut">
+    <wsdl:part name="parameters" element="tns:insertTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteTable" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryTableHttpGetIn">
+    <wsdl:part name="country" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertTableHttpGetIn">
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="ambulance" type="s:string" />
+    <wsdl:part name="fire" type="s:string" />
+    <wsdl:part name="police" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableHttpGetIn">
+    <wsdl:part name="country" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="queryTableHttpPostIn">
+    <wsdl:part name="country" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="queryTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertTableHttpPostIn">
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="ambulance" type="s:string" />
+    <wsdl:part name="fire" type="s:string" />
+    <wsdl:part name="police" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableHttpPostIn">
+    <wsdl:part name="country" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteTableHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="queryTable">
+      <wsdl:input message="tns:queryTableSoapIn" />
+      <wsdl:output message="tns:queryTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <wsdl:input message="tns:insertTableSoapIn" />
+      <wsdl:output message="tns:insertTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <wsdl:input message="tns:deleteTableSoapIn" />
+      <wsdl:output message="tns:deleteTableSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpGet">
+    <wsdl:operation name="queryTable">
+      <wsdl:input message="tns:queryTableHttpGetIn" />
+      <wsdl:output message="tns:queryTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <wsdl:input message="tns:insertTableHttpGetIn" />
+      <wsdl:output message="tns:insertTableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <wsdl:input message="tns:deleteTableHttpGetIn" />
+      <wsdl:output message="tns:deleteTableHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpPost">
+    <wsdl:operation name="queryTable">
+      <wsdl:input message="tns:queryTableHttpPostIn" />
+      <wsdl:output message="tns:queryTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <wsdl:input message="tns:insertTableHttpPostIn" />
+      <wsdl:output message="tns:insertTableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <wsdl:input message="tns:deleteTableHttpPostIn" />
+      <wsdl:output message="tns:deleteTableHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryTable">
+      <soap:operation soapAction="http://tempuri.org/queryTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <soap:operation soapAction="http://tempuri.org/insertTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <soap:operation soapAction="http://tempuri.org/deleteTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="queryTable">
+      <soap12:operation soapAction="http://tempuri.org/queryTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <soap12:operation soapAction="http://tempuri.org/insertTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <soap12:operation soapAction="http://tempuri.org/deleteTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpGet" type="tns:WebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="queryTable">
+      <http:operation location="/queryTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <http:operation location="/insertTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <http:operation location="/deleteTable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpPost" type="tns:WebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="queryTable">
+      <http:operation location="/queryTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertTable">
+      <http:operation location="/insertTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTable">
+      <http:operation location="/deleteTable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://vhost0819.site1.compute.ihost.com/aspnet_client/sbaba/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://vhost0819.site1.compute.ihost.com/aspnet_client/sbaba/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpGet" binding="tns:WebServiceHttpGet">
+      <http:address location="http://vhost0819.site1.compute.ihost.com/aspnet_client/sbaba/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpPost" binding="tns:WebServiceHttpPost">
+      <http:address location="http://vhost0819.site1.compute.ihost.com/aspnet_client/sbaba/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
