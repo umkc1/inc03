@@ -1,0 +1,20 @@
+#p1
+{
+    background-color:brown;
+}
+#map_canvas{
+    width: 60%;
+    height: 400px;
+    border: 2px solid black;
+    float: left;
+    background-color:black;
+}
+#directions {
+    width: 40%;
+    float: right; 
+    background-color:black;
+}
+body {
+    font-size: 12px;
+background-color:black;
+}
